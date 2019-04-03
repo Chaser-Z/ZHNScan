@@ -45,7 +45,7 @@ public class ScanVC: UIViewController {
         
     }()
     
-    override public func viewDidLoad(){
+    public override func viewDidLoad(){
         super.viewDidLoad()
         //初始化界面
         self.initView()
@@ -53,7 +53,7 @@ public class ScanVC: UIViewController {
         setupScanSession()
     }
     
-    override public func viewWillAppear(_ animated: Bool){
+   public override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
         startScan()
     }
@@ -246,7 +246,7 @@ public class ScanVC: UIViewController {
     }
     
     //设备旋转后重新布局
-    override public func viewDidLayoutSubviews() {
+    public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setLayerOrientationByDeviceOritation()
     }
@@ -292,7 +292,7 @@ public class ScanVC: UIViewController {
 extension ScanVC : AVCaptureMetadataOutputObjectsDelegate {
     
     //捕捉扫描结果
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+    public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
         //停止扫描
         self.scanLine.layer.removeAllAnimations()
