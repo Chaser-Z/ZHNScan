@@ -1,0 +1,6 @@
+framework module Pods_ZHNScan_Example {
+  umbrella header "Pods-ZHNScan_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

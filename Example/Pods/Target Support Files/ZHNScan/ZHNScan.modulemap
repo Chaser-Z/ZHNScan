@@ -1,0 +1,6 @@
+framework module ZHNScan {
+  umbrella header "ZHNScan-umbrella.h"
+
+  export *
+  module * { export * }
+}
