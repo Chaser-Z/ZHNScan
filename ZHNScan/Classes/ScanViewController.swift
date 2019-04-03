@@ -45,7 +45,7 @@ public class ScanVC: UIViewController {
         
     }()
     
-    override func viewDidLoad(){
+    override public func viewDidLoad(){
         super.viewDidLoad()
         //初始化界面
         self.initView()
@@ -53,7 +53,7 @@ public class ScanVC: UIViewController {
         setupScanSession()
     }
     
-    override func viewWillAppear(_ animated: Bool){
+    override public func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
         startScan()
     }
@@ -246,7 +246,7 @@ public class ScanVC: UIViewController {
     }
     
     //设备旋转后重新布局
-    override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setLayerOrientationByDeviceOritation()
     }
