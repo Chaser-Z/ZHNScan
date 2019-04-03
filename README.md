@@ -27,3 +27,5 @@ Chaser-Z, 18330570306@163.com
 ## License
 
 ZHNScan is available under the MIT license. See the LICENSE file for more info.
+=======
+扫码
