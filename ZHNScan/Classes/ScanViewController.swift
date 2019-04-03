@@ -24,7 +24,7 @@ private let kScreenH = UIScreen.main.bounds.height
 // 屏幕高度
 private let kScreenW = UIScreen.main.bounds.width
 
-class ScanVC: UIViewController {
+public class ScanVC: UIViewController {
     
     private var scanPane: UIImageView!///扫描框
     private var flashBtn = OMSButton() // 扫码区域上方闪光灯提示
