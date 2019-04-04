@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZHNScan'
-  s.version          = '0.1.8'
+  s.version          = '0.1.9'
   s.summary          = '二维码扫码'
   s.swift_version    = '4.0'
   

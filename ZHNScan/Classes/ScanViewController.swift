@@ -73,7 +73,7 @@ public class ScanVC: UIViewController {
         
         var bundle = Bundle(for: ScanVC.self)
         print(bundle)
-        if let resourcePath = bundle.path(forResource: "Resource", ofType: "bundle") {
+        if let resourcePath = bundle.path(forResource: "ZHNScan", ofType: "bundle") {
             print(resourcePath)
             if let resourcesBundle = Bundle(path: resourcePath) {
                 print(resourcesBundle)
