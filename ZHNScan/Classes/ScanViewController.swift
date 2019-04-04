@@ -40,7 +40,7 @@ public class ScanVC: UIViewController {
     lazy var scanLine : UIImageView = {
         let scanLine = UIImageView()
         scanLine.frame = CGRect(x: 0, y: 0, width: scanWidth, height: 3)
-        scanLine.image = UIImage(named: scanLineImagePath)
+        scanLine.image = UIImage(named: scanLineImagePath, in: getBundle(), compatibleWith: nil)
         return scanLine
         
     }()
@@ -62,7 +62,7 @@ public class ScanVC: UIViewController {
     private func initView()  {
         scanPane = UIImageView()
         scanPane.frame = CGRect(x: 300, y: 100, width: scanWidth, height: scanWidth)
-        scanPane.image = UIImage(named: scanBoxImagePath)
+        scanPane.image = UIImage(named: scanBoxImagePath, in: getBundle(), compatibleWith: nil)
         scanPane.isUserInteractionEnabled = true
         self.view.addSubview(scanPane)
         
@@ -71,23 +71,13 @@ public class ScanVC: UIViewController {
         //addConstraint()
         scanPane.addSubview(scanLine)
         
-        var bundle = Bundle(for: ScanVC.self)
-        print(bundle)
-        if let resourcePath = bundle.path(forResource: "ZHNScan", ofType: "bundle") {
-            print(resourcePath)
-            if let resourcesBundle = Bundle(path: resourcePath) {
-                print(resourcesBundle)
-                bundle = resourcesBundle
-            }
-        }
-        print(UIImage(named: "icon_scan_illumination_normal", in: bundle, compatibleWith: nil))
         flashBtn.setTitleColor(kThemeWhiteColor, for: .normal)
         flashBtn.setTitleColor(kThemeBlueColor, for: .selected)
         flashBtn.setTitle("轻触点亮", for: .normal)
         flashBtn.setTitle("轻触熄灭", for: .selected)
         flashBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        flashBtn.setImage(UIImage(named: "icon_scan_illumination_normal", in: bundle, compatibleWith: nil), for: .normal)
-        flashBtn.setImage(UIImage(named: "icon_scan_illumination", in: bundle, compatibleWith: nil), for: .selected)
+        flashBtn.setImage(UIImage(named: "icon_scan_illumination_normal", in: getBundle(), compatibleWith: nil), for: .normal)
+        flashBtn.setImage(UIImage(named: "icon_scan_illumination", in: getBundle(), compatibleWith: nil), for: .selected)
         //flashBtn.setImage(UIImage(named: "icon_scan_illumination_normal"), for: .normal)
         //flashBtn.setImage(UIImage(named: "icon_scan_illumination"), for: .selected)
         flashBtn.isSelected = false
@@ -106,6 +96,19 @@ public class ScanVC: UIViewController {
         topTitle.textColor = UIColor(red: 255.0/255, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         topTitle.frame = CGRect(x: 0, y: scanPane.bottom + 15, width: kScreenW, height: 20)
         view.addSubview(topTitle)
+    }
+    
+    private func getBundle() -> Bundle {
+        var bundle = Bundle(for: ScanVC.self)
+        //print(bundle)
+        if let resourcePath = bundle.path(forResource: "ZHNScan", ofType: "bundle") {
+            print(resourcePath)
+            if let resourcesBundle = Bundle(path: resourcePath) {
+                //print(resourcesBundle)
+                bundle = resourcesBundle
+            }
+        }
+        return bundle
     }
     
     @objc private func flashBtnAction(button: UIButton) {
@@ -363,7 +366,8 @@ extension ScanVC : AVCaptureMetadataOutputObjectsDelegate {
     
     //播放声音
     func playAlertSound(){
-        guard let soundPath = Bundle.main.path(forResource: soundFilePath, ofType: nil)  else { return }
+        guard let soundPath = getBundle().path(forResource: soundFilePath, ofType: nil) else { return }
+        //guard let soundPath = Bundle.main.path(forResource: soundFilePath, ofType: nil)  else { return }
         guard let soundUrl = NSURL(string: soundPath) else { return }
         var soundID:SystemSoundID = 0
         AudioServicesCreateSystemSoundID(soundUrl, &soundID)
