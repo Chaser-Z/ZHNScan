@@ -71,10 +71,11 @@ public class ScanVC: UIViewController {
         //addConstraint()
         scanPane.addSubview(scanLine)
         
-        let resourcePath = Bundle.main.path(forResource: "Resource", ofType: "bundle")
-        if let path = resourcePath, let resourcesBundle = Bundle(path: path) {
-            flashBtn.setImage(UIImage(named: "icon_scan_illumination_normal", in: resourcesBundle, compatibleWith: nil), for: .normal)
-            flashBtn.setImage(UIImage(named: "icon_scan_illumination", in: resourcesBundle, compatibleWith: nil), for: .selected)
+        var bundle = Bundle(for: ScanVC.self)
+        if let resourcePath = bundle.path(forResource: "Resource", ofType: "bundle") {
+            if let resourcesBundle = Bundle(path: resourcePath) {
+                bundle = resourcesBundle
+            }
         }
         
         flashBtn.setTitleColor(kThemeWhiteColor, for: .normal)
@@ -82,6 +83,8 @@ public class ScanVC: UIViewController {
         flashBtn.setTitle("轻触点亮", for: .normal)
         flashBtn.setTitle("轻触熄灭", for: .selected)
         flashBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        flashBtn.setImage(UIImage(named: "icon_scan_illumination_normal", in: bundle, compatibleWith: nil), for: .normal)
+        flashBtn.setImage(UIImage(named: "icon_scan_illumination", in: bundle, compatibleWith: nil), for: .selected)
         //flashBtn.setImage(UIImage(named: "icon_scan_illumination_normal"), for: .normal)
         //flashBtn.setImage(UIImage(named: "icon_scan_illumination"), for: .selected)
         flashBtn.isSelected = false
