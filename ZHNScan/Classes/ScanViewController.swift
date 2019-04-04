@@ -71,13 +71,19 @@ public class ScanVC: UIViewController {
         //addConstraint()
         scanPane.addSubview(scanLine)
         
+        let resourcePath = Bundle.main.path(forResource: "Resource", ofType: "bundle")
+        if let path = resourcePath, let resourcesBundle = Bundle(path: path) {
+            flashBtn.setImage(UIImage(named: "icon_scan_illumination_normal", in: resourcesBundle, compatibleWith: nil), for: .normal)
+            flashBtn.setImage(UIImage(named: "icon_scan_illumination", in: resourcesBundle, compatibleWith: nil), for: .selected)
+        }
+        
         flashBtn.setTitleColor(kThemeWhiteColor, for: .normal)
         flashBtn.setTitleColor(kThemeBlueColor, for: .selected)
         flashBtn.setTitle("轻触点亮", for: .normal)
         flashBtn.setTitle("轻触熄灭", for: .selected)
         flashBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        flashBtn.setImage(UIImage(named: "icon_scan_illumination_normal"), for: .normal)
-        flashBtn.setImage(UIImage(named: "icon_scan_illumination"), for: .selected)
+        //flashBtn.setImage(UIImage(named: "icon_scan_illumination_normal"), for: .normal)
+        //flashBtn.setImage(UIImage(named: "icon_scan_illumination"), for: .selected)
         flashBtn.isSelected = false
         flashBtn.imagePosition = .top
         flashBtn.contentHorizontalAlignment = .center
