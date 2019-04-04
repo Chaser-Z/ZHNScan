@@ -34,8 +34,8 @@ public class ScanVC: UIViewController {
     private var input: AVCaptureDeviceInput!
     private var device: AVCaptureDevice!
     var scanSession: AVCaptureSession?
-    typealias ClosureStringToVoid = (String) -> ()
-    var scanClosure: ClosureStringToVoid?
+    public typealias ClosureStringToVoid = (String) -> ()
+    public var scanClosure: ClosureStringToVoid?
     
     lazy var scanLine : UIImageView = {
         let scanLine = UIImageView()
