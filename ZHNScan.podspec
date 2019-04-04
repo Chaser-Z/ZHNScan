@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZHNScan'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = '二维码扫码'
   s.swift_version    = '4.0'
   
@@ -33,9 +33,9 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'ZHNScan/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'ZHNScan' => ['ZHNScan/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'ZHNScan' => ['ZHNScan/Assets/*']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
