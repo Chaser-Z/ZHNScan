@@ -72,12 +72,15 @@ public class ScanVC: UIViewController {
         scanPane.addSubview(scanLine)
         
         var bundle = Bundle(for: ScanVC.self)
+        print(bundle)
         if let resourcePath = bundle.path(forResource: "Resource", ofType: "bundle") {
+            print(resourcePath)
             if let resourcesBundle = Bundle(path: resourcePath) {
+                print(resourcesBundle)
                 bundle = resourcesBundle
             }
         }
-        
+        print(UIImage(named: "icon_scan_illumination_normal", in: bundle, compatibleWith: nil))
         flashBtn.setTitleColor(kThemeWhiteColor, for: .normal)
         flashBtn.setTitleColor(kThemeBlueColor, for: .selected)
         flashBtn.setTitle("轻触点亮", for: .normal)
