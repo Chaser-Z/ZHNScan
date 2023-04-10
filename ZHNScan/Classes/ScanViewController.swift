@@ -283,7 +283,7 @@ public class ScanVC: UIViewController {
         let endPoint = CGPoint(x: scanLine.center.x, y: scanHeight - 2)
         
         let translation = CABasicAnimation(keyPath: "position")
-        translation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        translation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         translation.fromValue = NSValue(cgPoint: startPoint)
         translation.toValue = NSValue(cgPoint: endPoint)
         translation.duration = scanAnimationDuration

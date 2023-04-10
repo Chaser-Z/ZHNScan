@@ -1,27 +1,16 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - ZHNScan (0.2.1)
+  - ZHNScan (0.2.2)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase (~> 2.1.4)
   - ZHNScan (from `../`)
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - FBSnapshotTestCase
 
 EXTERNAL SOURCES:
   ZHNScan:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  ZHNScan: aa93107aa4294d884aa24899aa186dce68aa97e0
+  ZHNScan: 2e9d0714dfe1bdaa5e7dba4f8b6e85734e2e4571
 
-PODFILE CHECKSUM: 1067ffd4b33d15a3e37957c7dd483dbde024ddbe
+PODFILE CHECKSUM: 46dc6e2f36f3511155c8c5945cf984536d1102c1
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.12.0
